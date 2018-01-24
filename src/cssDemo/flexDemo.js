@@ -3,12 +3,94 @@
  */
 import React from 'react'
 import logo from './logo.svg';
+import book_1 from './book_1.png';
+import book_2 from './book_2.png';
+import book_3 from './book_3.png';
+import book_4 from './book_4.png';
 class Main extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
       boolWidth: false
     }
+  }
+
+  imgFlex () {
+    console.log('不同大小的图片和平相处')
+    // let bookName = ['时代周刊', '皮克斯的启示', '人类简史', '人性中的善良天使']
+    let bookName = [book_1,book_2,book_3,book_4]
+    let imgArr = bookName.map((bookName, index) => {
+      return (
+        <div className='book-img-div' key={index}>
+          <img src={bookName} />
+          <span>123456456456</span>
+          <style jsx>{`
+          .book-img-div {
+            display: flex;
+            flex-wrap: wrap;
+          }
+          img {
+            width: 100%;
+            height: 100%;
+            // object-fit: contain;
+          }
+          `}</style>
+        </div>
+      )
+    })
+    return (
+      <div className='share-gift-div'>
+        <div className='book-list'>{imgArr}</div>
+        <style jsx>{`
+          .share-gift-div {
+            border-bottom: 1px solid grey;
+            height: 100px;
+          }
+          .book-list {
+            display: flex;
+            justify-content: space-around;
+          }
+        `}</style>
+      </div>
+    )
+  }
+
+  reFlex () {
+    console.log('让我么你重温下flex')
+    console.log('Question 如何使用space-between')
+    return (
+      <div className={'test'}>
+        <p className={'a-inner'}>一二三四五六七八九零</p>
+        <p className={'b-inner'}>一二三四五</p>
+        <p className={'c-inner'}>一二三四五</p>
+        <style>{`
+          .test {
+            display: flex;
+            background-color: black;
+            width: 600px;
+            line-height: 15px;
+            height: 15px;
+            overflow: hidden;
+            justify-content: space-between;
+          }
+          .test * {
+            margin: 0;
+          }
+          .a-inner {
+          flex: 1;
+          background-color: green;
+          }
+          .b-inner {
+          flex: 1;
+          background-color: blue;
+          }
+          .c-inner {
+          flex: 1;
+          background-color: red;
+          }
+        `}</style>
+      </div>
+    )
   }
 
   aboutSpace() {
@@ -69,19 +151,8 @@ class Main extends React.Component {
     </div>)
   }
 
-  set () {
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments)}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-111694630-1');
-  }
-
-
   render () {
     return (<div>
-      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111694630-1"></script>
-      {this.set()}
       {/*{this.renderFlex()}*/}
       {/*{this.flexChildIsWhat()}*/}
       {/*{this.renderAnimation()}*/}
@@ -90,7 +161,9 @@ class Main extends React.Component {
       {/*{this.test2()}*/}
       {/*{this.testHeight()}*/}
       {/*{this.imgWithP()}*/}
-      {this.aboutSpace()}
+      {/*{this.aboutSpace()}*/}
+      {/*{this.reFlex()}*/}
+      {this.imgFlex()}
     </div>)
   }
 
