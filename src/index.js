@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Demo from './my/main'
+import Demo from './my/demo'
 // import './index.css';
 // import Demo from './App';
 // import Demo from './jsDemo/reg';
