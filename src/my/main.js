@@ -7,7 +7,7 @@ export default class extends React.Component {
         this.state = {
             currenStorageIndex: undefined,
             nbArray: undefined,
-            currentInputValue: undefined
+            currentInputValue: '在这个区域输入你的'
         }
     }
 
@@ -85,8 +85,8 @@ export default class extends React.Component {
         return (
             <div>
                 <h3>这是输入文字的区域</h3>
-                <p>你现在正在往{this.state.currenStorageIndex}存储区域输入文字</p>
-                <input value={this.state.currentInputValue} onChange={(event) => {this.handleChange(event)}}/>
+                {/*<p>你现在正在往{this.state.currenStorageIndex}存储区域输入文字</p>*/}
+                <input value={`${this.state.currentInputValue}第${this.state.currenStorageIndex}个里程碑计划吧`} onChange={(event) => {this.handleChange(event)}}/>
                 <div onClick={() => {this.finishEnterLine()}}>完成</div>
             </div>
         )
@@ -126,12 +126,17 @@ export default class extends React.Component {
         )
     }
 
+  renderFinishButton () {
+      return
+  }
+
 
     render () {
         return (
             <div>
                 {this.renderEnterDiv()}
                 {this.renderViewDiv()}
+              {this.renderFinishButton()}
             </div>
         )
     }
